@@ -5,9 +5,16 @@
 		experiments
 	</title>
 	<link rel="stylesheet" type="text/css" href="exp.css">
-	<script>exp.js</script>
+	<script src="in.js"></script>
 </head>
 <body>
-
+	Select Language
+	<select id="test" name="form_select" onchange="showDiv(this)">
+	<option value="0">---Select Language---</option>
+   <option value="1">English</option>
+   <option value="2">Hindi</option>
+</select>
+<div id="hidden_div" style="display:none;">Form a sentence (Declarative or Interrogative) from the given words(Select the buttons in proper order)</div>
+	
 </body>
 </html>
