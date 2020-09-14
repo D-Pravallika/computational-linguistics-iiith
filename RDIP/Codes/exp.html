@@ -9,12 +9,20 @@
 </head>
 <body>
 	Select Language
+	<p id="stat"></p>
+
 	<select id="test" name="form_select" onchange="showDiv(this)">
 	<option value="0">---Select Language---</option>
    <option value="1">English</option>
    <option value="2">Hindi</option>
 </select>
 <div id="hidden_div" style="display:none;">Form a sentence (Declarative or Interrogative) from the given words(Select the buttons in proper order)</div>
-	
+<div id="wordsSel"></div>
+                    <button onclick="clearDisplay()" id="reformBtn">Re-form the Sentence</button><br>
+                    <button onclick="checkCorrectness()" class ="hide" id="checkBtn">Check Correctness of the Sentence</button>
+                    <div id="solution"></div><br>
+                    <button onclick="displaySols()" id="solsBtn" class="hide">GET CORRECT SENTENCE</button>
+                    <div id="answers"></div>
+
 </body>
 </html>
