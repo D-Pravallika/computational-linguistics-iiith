@@ -1,43 +1,23 @@
-function showDiv(select){
-   if(select.value==1){
-    document.getElementById('hidden_div').style.display = "block";
-   }
-   else if(select.value==2){
-    document.getElementById('hidden_div').style.display = "block";
-   }
-    else{
-    document.getElementById('hidden_div').style.display = "none";
-   }
-} 
-var corpus_eng =  [
-["John ate an apple before afternoon",
+var arr_eng =  [["John ate an apple before afternoon",
     "before afternoon John ate an apple",	
     "John before afternoon ate an apple"],
-
     ["some students like to study in the night",
-        "at night some students like to study"],
-
+    "at night some students like to study"],
     ["John and Mary went to church",
     "Mary and John went to church"],
-
     ["John went to church after eating",	
     "after eating John went to church",
     "John after eating went to church"],
-
     ["did he go to market",	
     "he did go to market"],
-
     ["the woman who called my sister sells cosmetics",
     "the woman who sells cosmetics called my sister",
     "my sister who sells cosmetics called the woman",
     "my sister who called the woman sells cosmetics"],
-
     ["John goes to the library and studies",
     "John studies and goes to the library"],
-
     ["John ate an apple so did she",
     "she ate an apple so did John"],
-
     ["the teacher returned the book after she noticed the error",
     "the teacher noticed the error after she returned the book",
     "after the teacher returned the book she noticed the error",
@@ -46,7 +26,6 @@ var corpus_eng =  [
     "she noticed the error after the teacher returned the book",
     "after she returned the book the teacher noticed the error",
     "after she noticed the error the teacher returned the book"],
-
     ["I told her that I bought a book yesterday",
     "I told her yesterday that I bought a book",
     "yesterday I told her that I bought a book",
@@ -54,17 +33,14 @@ var corpus_eng =  [
     "I bought a book yesterday that I told her",	
     "yesterday I bought a book that I told her"]];
 
-var corpus_hin = [
-    ["राम और श्याम बाजार गयें",
+var arr_hin = [["राम और श्याम बाजार गयें",
      "राम और श्याम गयें बाजार",
      "बाजार गयें राम और श्याम",
      "गयें बाजार राम और श्याम"],
-
     ["राम सोया और श्याम भी",
      "श्याम सोया और राम भी",
      "सोया श्याम और राम भी",
      "सोया राम और श्याम भी"],
-
     ["मैंने उसे बताया कि राम सो रहा है",
      "मैंने उसे बताया कि सो रहा है राम",
      "उसे मैंने बताया कि राम सो रहा है",
@@ -77,14 +53,12 @@ var corpus_hin = [
      "बताया मैंने उसे कि सो रहा है राम",
      "बताया उसे मैंने कि राम सो रहा है",
      "बताया उसे मैंने कि सो रहा है राम"],
-
     ["राम खाकर सोया",
      "खाकर राम सोया",
      "राम सोया खाकर",
      "खाकर सोया राम",
      "सोया राम खाकर",
      "सोया खाकर राम"],
-
     ["बिल्लियों को मारकर कुत्ता सो गया",
      "मारकर बिल्लियों को कुत्ता सो गया", 
      "बिल्लियों को मारकर सो गया कुत्ता",
@@ -93,12 +67,10 @@ var corpus_hin = [
      "कुत्ता सो गया मारकर बिल्लियों को",
      "सो गया कुत्ता बिल्लियों को मारकर",
      "सो गया कुत्ता मारकर बिल्लियों को"],
-
     ["एक लाल किताब वहाँ है",
      "एक लाल किताब है वहाँ",
      "वहाँ है एक लाल किताब",
      "है वहाँ एक लाल किताब"],
-
     ["एक बड़ी सी किताब वहाँ है",
      "एक बड़ी सी किताब है वहाँ",
      "बड़ी सी एक किताब वहाँ है",
@@ -108,38 +80,30 @@ var corpus_hin = [
      "है वहाँ एक बड़ी सी किताब",
      "है वहाँ बड़ी सी एक किताब"]];
 
+function Sentmsg(value){
+    document.getElementById("line1l").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
+    document.getElementById("line2l").innerHTML = "(<i>select the buttons in proper order</i>)";
+    randomm(value);
+    if(document.getElementById("wordsel").childNodes.length != 0){
+        clr();
+    }
+}
 
-   function dispInitial(value){
-
-        document.getElementById("initialMsg").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
-        document.getElementById("subMsg").innerHTML = "(select the buttons in proper order)";
-        randSentence(value);
-
-        if(document.getElementById("wordsSel").childNodes.length!=0){
-            clearDisplay();
-        }
-
-     };
-
-     function randSentence(value){
-
-        var buttons = document.getElementById("wrd-buttons"); //removing buttons when option value is changed
-        while (buttons.hasChildNodes()) {  
-        buttons.removeChild(buttons.firstChild);
-        }
-
-         if (value == "english"){
-            var str = corpus_eng[Math.floor(Math.random() * corpus_eng.length)][0]; //Picking a random sentence from the corpus
+function randomm(value){
+    var button = document.getElementById("word-buttons"); 
+    while (button.hasChildNodes()) {  
+    button.removeChild(button.firstChild);
+    }
+    if (value == "1"){
+        var str = arr_eng[Math.floor(Math.random() * arr_eng.length)][0]; 
+        console.log(str);
+        var words = randomwrd(str);
+    }
+        else if (value == "2"){
+            var str = arr_hin[Math.floor(Math.random() * arr_hin.length)][0];
             console.log(str);
-            var words = randWords(str);//Generating random words from the sentence
+            var words = randomwrd(str);
         }
-
-        else if (value == "hindi"){
-            var str = corpus_hin[Math.floor(Math.random() * corpus_hin.length)][0];
-            console.log(str);
-            var words = randWords(str);
-        }
-
         for(var i=0; i<words.length; i++){
             var btn = document.createElement("BUTTON"); 
             btn.className = "wrd-btn";
@@ -147,49 +111,151 @@ var corpus_hin = [
             btn.id = i;
             btn.onclick = function() {dispWords(this.id); };
             btn.innerHTML = words[i];
-            document.getElementById("wrd-buttons").appendChild(btn); 
+            document.getElementById("word-buttons").appendChild(btn); 
         }
-     }
-     function clearDisplay(){
-        var sentence = document.getElementById("wordsSel");
+}
 
-        var children = document.getElementById("wrd-buttons").childElementCount;
+function randomwrd(string){
+        var words = string.split(" "); 
+        var arr = shuffling(words);
+        console.log(arr);
 
-        for(var i=0; i<children; i++){ //Loop that gets the buttons back by un-hiding them if hidden
-            if(document.getElementById("wrd-buttons").childNodes[i].classList.contains("hide")){
+        return arr;
+}
 
-                document.getElementById("wrd-buttons").childNodes[i].classList.remove("hide");
-            }
-        }
-               
-        sentence.innerHTML = "";//clears the string
-        document.getElementById("second-portion").classList.add("hide");
-        document.getElementById("checkBtn").classList.add("hide");
-        document.getElementById("solsBtn").classList.add("hide");
-        document.getElementById("solsBtn").innerHTML = "GET CORRECT SENTENCE";
-        document.getElementById("solution").innerHTML = "";
-        document.getElementById("answers").innerHTML = "";
-     
-     }
-
- function shuffle(array) { //Function to shuffle the array to generate words in random order
-        var currentIndex = array.length, temporaryValue, randomIndex;
-      
-        // While there remain elements to shuffle
+function shuffling(arr) { 
+        var currentIndex = arr.length, temporaryValue, randomIndex;
         while (0 !== currentIndex) {
-      
-          // Pick a remaining element
           randomIndex = Math.floor(Math.random() * currentIndex);
           currentIndex -= 1;
-      
-          // And swap it with the current element
-          temporaryValue = array[currentIndex];
-          array[currentIndex] = array[randomIndex];
-          array[randomIndex] = temporaryValue;
+          temporaryValue = arr[currentIndex];
+          arr[currentIndex] = arr[randomIndex];
+          arr[randomIndex] = temporaryValue;
+        }      
+        return arr;
+}
+
+function dispWords(id){ 
+            var val = document.getElementById(id).value;
+            var sentence = document.getElementById("wordsel");
+            var words = sentence.innerHTML.split(" ");
+            var word_count = words.length;
+            var word_limit = document.getElementById("word-buttons").childElementCount;
+            if (sentence.childNodes.length==0) { 
+                if(document.getElementById("elements").classList.contains("hiden")){
+                    document.getElementById("elements").classList.remove("hiden");
+                }             
+                sentence.innerHTML = val;
+                var element = document.getElementById(id);
+                element.classList.add("hiden");  
+            }
+            else if(word_count==word_limit-1){ 
+                document.getElementById("checkBtn").classList.remove("hiden");
+                sentence.innerHTML += " " + val;
+                var element = document.getElementById(id);
+                element.classList.add("hiden");  
+            }
+            else {
+                sentence.innerHTML += " " + val;
+                var element = document.getElementById(id);
+                element.classList.add("hiden");          
+            }
+}
+
+function clr(){
+        var sentence = document.getElementById("wordsel");
+        var child = document.getElementById("word-buttons").childElementCount;
+        for(var i=0; i<child; i++){ 
+            if(document.getElementById("word-buttons").childNodes[i].classList.contains("hiden")){
+                document.getElementById("word-buttons").childNodes[i].classList.remove("hiden");
+            }
+        }             
+        sentence.innerHTML = "";
+        document.getElementById("elements").classList.add("hiden");
+        document.getElementById("checkBtn").classList.add("hiden");
+        document.getElementById("solsBtn").classList.add("hiden");
+        document.getElementById("solsBtn").innerHTML = "Get Correct Sentence";
+        document.getElementById("solution").innerHTML = "";
+        document.getElementById("answers").innerHTML = "";   
+}
+
+function checkCorrectness(){
+    var sentence = document.getElementById("wordsel").innerHTML;
+    for(var i = 0; i < arr_eng.length; i++) {
+        for(var j = 0; j < arr_eng[i].length; j++) {
+            if(sentence == arr_eng[i][j]){
+                document.getElementById("solution").style.color = "green";
+                document.getElementById("solution").innerHTML = "Right Answer!!!";
+                return true;
+            }
         }
-      
-        return array;
-      }
+    }
+    for(var i = 0; i < arr_hin.length; i++) {
+        for(var j = 0; j < arr_hin[i].length; j++) {
+            if(sentence == arr_hin[i][j]){
+                document.getElementById("solution").style.color = "green";
+                document.getElementById("solution").innerHTML = "Right Answer!!!";
+                return true;
+            }
+        }
+    }
+    document.getElementById("solution").innerHTML = "Wrong Answer!!!";
+    document.getElementById("solution").style.color = "red";
+    document.getElementById("solsBtn").classList.remove("hiden");
+    document.getElementById("solsBtn").innerHTML = "Get Correct Sentence";
+    document.getElementById("answers").innerHTML = "";
+    return false;
+}
 
+function Finalsols(){
+    var matched_sentence;
+    var language;
+    var sentence = document.getElementById("wordsel");
+    var btn = document.getElementById("solsBtn");
+    var words = sentence.innerHTML.split(" "); 
+    if (btn.innerHTML =="Get Correct Sentence"){
+        btn.innerHTML = "Hide the Correct Sentence";
+        for(var i = 0; i < arr_eng.length; i++) {
+            if(arrayseq(words,arr_eng[i][0].split(" "))){
+                language = 1;
+                matched_sentence = i;
+            }
+        }
+        for(var i = 0; i < arr_hin.length; i++) {
+            if(arrayseq(words,arr_hin[i][0].split(" "))){
+                language =2;
+                matched_sentence = i;
+            }
+        }
+        if (language==1){
+            for(var i=0; i<arr_eng[matched_sentence].length; i++){
+                document.getElementById("answers").innerHTML += arr_eng[matched_sentence][i] + "<br>";
+            }
+        }
+        if (language==2){
+            for(var i=0; i<arr_hin[matched_sentence].length; i++){
+                document.getElementById("answers").innerHTML += arr_hin[matched_sentence][i] + "<br>";
+            }
+        }
+    }
+    else if (btn.innerHTML == "Hide the Correct Sentence"){
+        btn.innerHTML = "GET ANSWERS";
+        document.getElementById("answers").classList.add("hiden");
+    }
+    else{
+        btn.innerHTML = "Hide the Correct Sentence";
+        document.getElementById("answers").classList.re
+    }
+}
 
-
+function arrayseq(arr1, arr2){ 
+    if (!Array.isArray(arr1) || ! Array.isArray(arr2) || arr1.length !== arr2.length)
+        return false;
+        var arr11 = arr1.concat().sort();
+        var arr22 = arr2.concat().sort();
+        for (var i = 0; i < arr1.length; i++){
+            if (arr11[i] !== arr22[i])
+                return false;
+    }
+    return true;
+}

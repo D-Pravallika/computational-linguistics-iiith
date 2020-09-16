@@ -1,0 +1,68 @@
+.fs{
+	color: #0b2a99;
+	font-size: 40px;
+}
+.ex{
+	font-size: 35px;
+}
+.fa{
+	font-size: 25px;
+	color: #0b2a99;
+}
+.hiden{
+    display: none;
+}
+#Sel{
+	text-align: center;
+}
+select#langg {
+	text-align: center;
+	height: 30px;
+	width: 10vw;
+}
+.line11{
+	font-size: 30px;
+	color: #0b2a99;
+	text-align: center;
+}
+.line22 {
+	color: #1d34a3;
+	font-size: 20px;
+	text-align: center;
+}
+#word-buttons {
+	text-align: center;
+}
+button.wrd-btn {
+	text-align: center;
+	font-size: large;
+	width: 10vw;
+	height: 7vh;
+	margin: 3px;
+}
+#wordsSel {
+	font-size: xx-large;
+	text-align: center;
+}
+button#reformBtn{
+	height: 5vh;
+	margin: 3vh;
+}
+button#checkBtn {
+	height: 5vh;
+	margin-bottom: 2vh;
+}
+button#solsBtn {
+	height: 5vh;
+	margin: 2vh;
+}
+#elements{
+	text-align: center;
+}
+#solution {
+	font-size: xx-large;
+	font-style: bold;
+}
+#answers {
+	font-size: large;
+}

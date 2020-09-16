@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>
-		experiments
-	</title>
-	<link rel="stylesheet" type="text/css" href="exp.css">
-	<script src="in.js"></script>
-</head>
-<body>
-	Select Language
-	<p id="stat"></p>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Experiment</title>       
+        <link href="exp.css" rel="stylesheet"/>
+        <script src="in.js"></script>
+    </head>
+    <body>
+        <span class="fs">Forming Sentences - 2</span><br>
+        <span class="ex">Experiment</span>
+        <div id="Sel">
+            <select id="langg" onchange="Sentmsg(this.value)" onfocus="this.selectedIndex = -1;">
+                <option>---Select Language---</option>
+                <option value="1">English</option>
+                <option value="2">Hindi</option>
+            </select>
+        </div>
+        <div class="line11"><span id="line1l"></span></div>
+        <div class="line22"><span id="line2l"></span></div>
+        <div id="word-buttons"></div>
+        <div id="elements" class="hiden">
+            <span class="fa" id="secondMsg">Formed Sentence<i>(after selecting words)</i></span>
+            <div id="wordsel"></div>
+            <button onclick="clr()" id="reformBtn">Re-form the Sentence</button><br>
+            <button onclick="checkCorrectness()" class ="hiden" id="checkBtn">Check Correctness of the Sentence</button>
+            <div id="solution"></div><br>
+            <button onclick="Finalsols()" id="solsBtn" class="hiden">Get Correct Sentence</button>
+            <div id="answers"></div>
 
-	<select id="test" name="form_select" onchange="showDiv(this)">
-	<option value="0">---Select Language---</option>
-   <option value="1">English</option>
-   <option value="2">Hindi</option>
-</select>
-<div id="hidden_div" style="display:none;">Form a sentence (Declarative or Interrogative) from the given words(Select the buttons in proper order)</div>
-<div id="wordsSel"></div>
-                    <button onclick="clearDisplay()" id="reformBtn">Re-form the Sentence</button><br>
-                    <button onclick="checkCorrectness()" class ="hide" id="checkBtn">Check Correctness of the Sentence</button>
-                    <div id="solution"></div><br>
-                    <button onclick="displaySols()" id="solsBtn" class="hide">GET CORRECT SENTENCE</button>
-                    <div id="answers"></div>
-
-</body>
+        </div>               
+    </body>
 </html>
