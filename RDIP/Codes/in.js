@@ -84,7 +84,7 @@ function Sentmsg(value){
     document.getElementById("line1l").innerHTML = "Form a sentence (Declarative or Interrogative or any other type) from the given words";
     document.getElementById("line2l").innerHTML = "(<i>select the buttons in proper order</i>)";
     randomm(value);
-    if(document.getElementById("wordsel").childNodes.length != 0){
+    if(document.getElementById("wordsel").childNodes.length!= 0){
         clr();
     }
 }
