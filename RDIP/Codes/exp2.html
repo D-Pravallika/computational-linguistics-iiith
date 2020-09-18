@@ -2,40 +2,41 @@
 <html>
     <head>
         <meta charset="utf-8"/>
-        <title>Experiment - 2</title>    	
+        <title>Experiment - 2</title>       
         <link href="exp2.css" rel="stylesheet"/>
         <script data-main ="exp2.js"  src="../Libraries/require.js"></script>
     </head>
     <body>
-        <span>Types and Tokens</span><br>
-        <span>Experiment</span>
-            <div class="corpusbox"> 
-                <select name="corpus" id="corpus" onchange="selectsel(this.value)" onfocus="this.selectedIndex = -1;">
-                    <option value="select">---Select a Corpus---</option>
-                    <option value="0">Corpus 1</option>
-                    <option value="1">Corpus 2</option>
-                    <option value="2">Corpus 3</option>
-                    </select>
-            </div>	
-            <div>
-                <p id="alt"></p>
-                <form>
-                    <table>
-                        <tr><td>#tokens:</td>
-                        <td id="tokens"><input type="text"></td></tr>
-                        <tr><td>#types:</td>
-                        <td id="types"><input type="text"></td></tr>
-                    </table><br>
-                        <input type="button" value="SUBMIT">
-                </form>
-                <h4 id="solution"></h4>
-                <button id = "continue">CONTINUE</button>
-                <p id="msg"></p>
-                <form>
-                    <input type="text"><br><br>
-                    <input type="button">
-                    <h4 id="solutionn"></h4>
-                </form>
+            <span class="tt">Tokens and Types</span><br>
+            <span class="headd">Experiment</span>
+            <div class ="selectbox">
+                <select class="sell" onchange="selectval(this.value)" onfocus="this.selectedIndex = -1;">
+                <option value="select" select="selected">---Select a Corpus---</option>
+                <option value="0">Corpus 1</option>
+                <option value="1">Corpus 2</option>
+                <option value="2">Corpus 3</option>
+                </select>
             </div>
+            <div class="content">
+                <p id="corpus-para"></p>
+                <p id="enterr"></p>
+                <form name="form" id="tableval" class="hiden">
+                    <table id="input">
+                        <tr><td>#tokens:</td>
+                        <td id="tokens"><input type="number" name="tokens" id="inp-tokens"></td></tr>
+                        <tr><td>#types:</td>
+                        <td id="types"><input type="number" name="types" id="inp-types"></td></tr>
+                    </table><br>
+                    <input onclick="res()" id="submit" type="button" value="SUBMIT">
+                </form>
+                <span id="sols"></span><br>
+                <button id = "continue" class="hiden" onclick="rooot()">continue</button>
+                <p id="rootss"></p>
+                <form name="form2" id="root-input" class="hiden">
+                    <input type="text" name="roots" id="inp-roots"><br><br>
+                    <input type="button" value="Submit" onclick="froot()">
+                    <span id="sols2"></span>
+                </form>
+            </div>   
     </body>
 </html>
