@@ -4,8 +4,27 @@ var arr_corpus = [
     'A man had a little dog, and he was very fond of it. He would pat its head, and take it on his knee, and talk to it. Then he would give it little bits of food from his own plate. A donkey looked in at the window and saw the man and the dog. "Why does he not make a pet of me?" said the donkey. "It is not fair. I work hard, and the dog only wags its tail, and barks, and jumps on its master\'s knee. It is not fair." Then the donkey said to himself, "If I do what the dog does, he may make a pet of me." So the donkey ran into the room. It brayed as loudly as it could. It wagged its tail so hard that it knocked over a jar on the table. Then it tried to jump on to its master\'s knee. The master thought the donkey was mad, and he shouted, "Help! Help!" Men came running in with sticks, and they beat the donkey till it ran out of the house, and they drove it back to the field. "I only did what the dog does," said the donkey," and yet they make a pet of the dog, and they beat me with sticks. It is not fair.'
     ];
 
-function selectval(value) {
-    if (value != "select") {
-    document.getElementById("initialMsg").innerHTML = "Enter the correct number of tokens and types for the above corpus:";
-    }
-}
+function selectsel(value){
+        document.getElementById("solution").innerHTML = "";
+        document.getElementById("solution2").innerHTML = "";
+        document.form2.roots.value = "";
+        document.form.tokens.value = "";
+        document.form.types.value = "";
+        document.getElementById("input-tokens").style.backgroundColor = "white";
+        document.getElementById("input-types").style.backgroundColor = "white";
+        document.getElementById("input-roots").style.backgroundColor = "white";
+        document.getElementById("submit").classList.remove("hide");
+        document.getElementById("root-input").classList.add("hide");
+        document.getElementById("secondMsg").innerHTML = "";
+
+        corpValue = value;
+
+        if(value != "select"){
+            document.getElementById("initialMsg").innerHTML = "Enter the correct number of tokens and types for the above corpus:";
+            document.getElementById("corpus-display").innerHTML = corpus[value];
+            document.getElementById("input-form").classList.remove("hide");
+        }
+        else {
+            alert("Select a Corpus!");
+        }
+    };
