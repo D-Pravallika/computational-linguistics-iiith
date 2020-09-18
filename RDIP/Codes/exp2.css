@@ -1,0 +1,33 @@
+.corpusbox {
+    text-align: center;
+}
+
+
+
+
+.hide {
+    display: none;
+}
+
+table {
+    text-align: center;
+    margin: auto;
+    width: 25%;
+}
+
+td {
+    border: solid 1px grey;
+    padding: 1.5vh;
+    width: 50%;
+}
+
+
+
+.correct {
+    background-color: green;
+}
+
+.wrong {
+    background-color: red;
+}
+
